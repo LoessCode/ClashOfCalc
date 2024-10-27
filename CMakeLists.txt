@@ -12,10 +12,28 @@ endif()
 project ("ClashOfCalc")
 
 # Add source to this project's executable.
-add_executable (ClashOfCalc "src/ClashOfCalc.cpp" "src/ClashOfCalc.h" "src/StateMachine.cpp" "src/StateMachine.h")
+add_executable (ClashOfCalc "src/ClashOfCalc.cpp" "src/ClashOfCalc.h" "src/StateMachine.cpp" "src/StateMachine.h" "src/GameState.h" "src/GameState.cpp" "src/main.cpp" "src/main.h" "src/Menu.cpp" "src/Menu.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET ClashOfCalc PROPERTY CXX_STANDARD 20)
 endif()
 
 # TODO: Add tests and install targets if needed.
+
+# Dependencies
+include(FetchContent)
+set(RAYLIB_VERSION 5.0)
+FetchContent_Declare(
+    raylib
+    URL https://github.com/raysan5/raylib/archive/refs/tags/${RAYLIB_VERSION}.tar.gz
+    FIND_PACKAGE_ARGS ${RAYLIB_VERSION} EXACT
+)
+
+# Removes examples
+set(BUILD_EXAMPLES OFF CACHE INTERNAL "")
+
+#Fetches content of raylib and adds to the project files
+FetchContent_MakeAvailable(raylib)
+
+#Links libraries to the project
+target_link_libraries(${PROJECT_NAME} raylib)

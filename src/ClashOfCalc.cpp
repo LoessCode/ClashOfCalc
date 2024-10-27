@@ -1,13 +1,19 @@
-﻿// ClashOfCalc.cpp : Defines the entry point for the application.
-//
+﻿#include <raylib.h>
 
 #include "ClashOfCalc.h"
 #include "StateMachine.h"
+#include "Menu.h"
 
-using namespace std;
 
-int main()
+void ClashOfCalc::run(StateMachine* stateMachine)
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+
 }
+
+void ClashOfCalc::cleanup(StateMachine* stateMachine)
+{
+	stateMachine->pushState(
+		Menu::Instance()
+	);
+}
+
