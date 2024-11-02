@@ -1,19 +1,19 @@
 ﻿#include <raylib.h>
+#include <iostream>
 
+#include "GameState.h"
 #include "ClashOfCalc.h"
 #include "StateMachine.h"
 #include "Menu.h"
 
 
-void ClashOfCalc::run(StateMachine* stateMachine)
+void ClashOfCalc::run()
 {
-
+	std::cout << "Hello World\n";
 }
 
-void ClashOfCalc::cleanup(StateMachine* stateMachine)
+GameState* ClashOfCalc::next_state()
 {
-	stateMachine->pushState(
-		Menu::Instance()
-	);
+	return this->Instance();
 }
 

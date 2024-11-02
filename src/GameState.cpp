@@ -1,7 +1,7 @@
 #include "GameState.h"
 #include "StateMachine.h"
 
-void GameState::run(StateMachine* stateMachine)
+void GameState::run()
 {
 	InitWindow(1920, 1080, m_title);
 
@@ -10,7 +10,8 @@ void GameState::run(StateMachine* stateMachine)
 	CloseWindow();
 }
 
-void GameState::cleanup(StateMachine* stateMachine)
+GameState* GameState::next_state()
 {
-	//Code to push next state to stateMachine
+	return this->Instance();
+	//Code to return next state for statemachine
 }

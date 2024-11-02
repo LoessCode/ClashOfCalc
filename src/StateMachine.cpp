@@ -1,4 +1,5 @@
 #include "StateMachine.h"
+#include "GameState.h"
 
 void StateMachine::run()
 {
@@ -10,13 +11,15 @@ void StateMachine::run()
 		m_states.pop();
 
 		//Executes
-		m_currentState->run(this);
+		m_currentState->run();
+		if (m_currentState->hasNextState) {
+			push_state(m_currentState->next_state());
+		}
 
-		m_currentState->cleanup(this);
 	}
 }
 
-void StateMachine::pushState(GameState* gameState)
+void StateMachine::push_state(GameState* gameState)
 {
 	m_states.push(gameState);
 }

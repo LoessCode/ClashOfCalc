@@ -15,7 +15,7 @@ class StateMachine {
 public:
 	void run();
 
-	void pushState(GameState* gameState);
+	void push_state(GameState* gameState);
 
 private:
 	GameState* m_currentState;

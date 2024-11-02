@@ -1,10 +1,12 @@
 #include "Menu.h"
+#include "GameState.h"
 
-void Menu::run(StateMachine* stateMachine)
+void Menu::run()
 {
 }
 
-void Menu::cleanup(StateMachine* stateMachine)
+GameState* Menu::next_state()
 {
-	//Code to push state of game / quit
+	//Code to send next state
+	return this->Instance();
 }

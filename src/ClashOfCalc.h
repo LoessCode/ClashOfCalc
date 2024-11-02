@@ -5,8 +5,12 @@ public:
 	int windowHeight = 1080;
 	int windowWidth = 1920;
 
-	void run(StateMachine* stateMachine);
-	void cleanup(StateMachine* stateMachine);
+	void run();
+	GameState* next_state();
 
+	static ClashOfCalc* Instance() {
+		return &m_gameState;
+	}
 private:
+	static ClashOfCalc m_gameState;
 };
