@@ -1,19 +1,15 @@
-// ClashOfCalc.cpp : Defines the entry point for the application.
-//
 
-#include "ClashOfCalc.h"
-#include "StateMachine.h"
-#include "GameState.h"
+#include "engine/SceneManager.h"
+#include "engine/ResourceManager.h"
+#include "engine/Scene.h"
 
-using namespace std;
+int main() {
+	Scene* menu = new Scene();
 
-int main()
-{
-	StateMachine* stateMachine = new StateMachine;
-
-	stateMachine->push_state(
-		ClashOfCalc::Instance()
+	SceneManager::Instance().push_scene(
+		menu
 	);
+	SceneManager::Instance().run();
 
-	stateMachine->run();
+	return 0;
 }
