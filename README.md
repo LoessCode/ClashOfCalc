@@ -1,7 +1,11 @@
 # ClashOfCalc
 
 ## How to Build
-Download the project files and use CMake to build the project. Then simply run ClashOfCalc.exe and play!
+Download project files and build with CMake (needs internet)
+
+Run ClashOfCalc.exe and play!
+
+PS: Building was tested with Cmake for visual studio. Unsure about compatibility with other build systems. 
 
 ## How to Play
 
