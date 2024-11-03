@@ -3,10 +3,10 @@
 #include <chrono>
 #include <iostream>
 
-enum LogLevel {
-	LOG_LEVEL_INFO = 2,
-	LOG_LEVEL_WARN = 1,
-	LOG_LEVEL_ERROR = 0
+enum class LogLevel {
+	ERROR,
+	WARN, 
+ INFO
 };
 
 
@@ -27,7 +27,7 @@ public:
 private:
 	Logger() {};
 
-	LogLevel m_logLevel = LOG_LEVEL_INFO;
+	LogLevel m_logLevel = LogLevel::INFO;
 	const char* logLevelLabels[3] = {
 		"ERROR",
 		"WARNING",
