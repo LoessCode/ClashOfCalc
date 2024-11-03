@@ -15,25 +15,25 @@ void Logger::setLogLevel(LogLevel logLevel)
 
 void Logger::info(const char* message)
 {
-	if (m_logLevel == LOG_LEVEL_INFO)
+	if (m_logLevel == LogLevel::INFO)
 	{
-		log(message, LOG_LEVEL_INFO);
+		log(message, LogLevel::INFO);
 	}
 }
 
 void Logger::warn(const char* message)
 {
-	if (m_logLevel >= LOG_LEVEL_WARN)
+	if (m_logLevel >= LogLevel::WARN)
 	{
-		log(message, LOG_LEVEL_WARN);
+		log(message, LogLevel::WARN);
 	}
 }
 
 void Logger::error(const char* message)
 {
-	if (m_logLevel >= LOG_LEVEL_ERROR)
+	if (m_logLevel >= LogLevel::ERROR)
 	{
-		log(message, LOG_LEVEL_ERROR);
+		log(message, LogLevel::ERROR);
 	}
 }
 
