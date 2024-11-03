@@ -28,11 +28,6 @@ private:
 	Logger() {};
 
 	LogLevel m_logLevel = LogLevel::INFO;
-	const char* logLevelLabels[3] = {
-		"ERROR",
-		"WARNING",
-		"INFO"
-	};
 
 	void log(const char* message, LogLevel messageLevel);
 };
