@@ -1,6 +1,8 @@
 #include "Logger.h"
 
-
+const char* LogLevelLabels[3]={
+ "ERROR", "WARNING", "INFO" 
+};
 
 Logger& Logger::Instance()
 {
