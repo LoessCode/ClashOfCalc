@@ -4,17 +4,20 @@
 #include <raylib.h>
 #include <iostream>
 
-Scene::Scene()
+namespace Engine
 {
+	Scene::Scene()
+	{
 
-}
+	}
 
-void Scene::run()
-{
-	InitWindow(m_windowHeight, m_windowWidth, m_sceneTitle);
-}
+	void Scene::run()
+	{
+		InitWindow(m_windowHeight, m_windowWidth, m_sceneTitle);
+	}
 
-void Scene::cleanup() 
-{
-	CloseWindow();
+	void Scene::cleanup()
+	{
+		CloseWindow();
+	}
 }

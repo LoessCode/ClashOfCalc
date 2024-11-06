@@ -1,21 +1,19 @@
-#ifndef SCENE_H
-#define SCENE_H
+#pragma once
 
-class Scene {
-public:
-	Scene();
+namespace Engine
+{
 
-	virtual void run();
-	virtual void cleanup();
-	
-	const int m_windowHeight = 1080/2;
-	const int m_windowWidth = 1920/2;
-	const char* const m_sceneTitle = "Scene";
+	class Scene {
+	public:
+		Scene();
 
-protected:
+		virtual void run();
+		virtual void cleanup();
 
-private:
-	
-};
+	public:
+		const int m_windowHeight = 1080/2;
+		const int m_windowWidth = 1920/2;
+		const char* const m_sceneTitle = "Scene";
+	};	
 
-#endif //Pragma once
+}

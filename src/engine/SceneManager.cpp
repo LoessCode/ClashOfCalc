@@ -5,45 +5,59 @@
 #include <string>
 #include <sstream>
 
-SceneManager::SceneManager()
-{
-	//Pushes abstract Scene, which can have some useful init capabilities perhaps.
-	m_currentScene = new Scene;
-	m_scenes.push(m_currentScene);
 
-	Logger::Instance().info("<SceneManager> Initiialized Scene Manager.");
-}
+namespace Engine {
+	
+	static SceneManager* s_Instance = nullptr;
 
-SceneManager& SceneManager::Instance()
-{
-	//Initialises the singleton and returns it.
-	static SceneManager sceneManager;
-	return sceneManager;
-}
+	SceneManager::SceneManager() 
+	{
+		s_Instance = this;
+	}
 
-void SceneManager::push_scene(Scene* scene)
-{
-	m_scenes.push(scene);
+	SceneManager& SceneManager::Instance() 
+	{
+		if(s_Instance) 
+		{
+			return *s_Instance;
+		}
+		else 
+		{
+			Logger::Instance().error("<SceneManager> The SceneManager cannot be retrieved without initiializing.");
 
-	std::stringstream message;
-	message << "<SceneManager> Added Scene: '" << scene->m_sceneTitle << "'";
-	Logger::Instance().info(message.str().c_str());
-}
+			throw;
+		}
+	}
 
-void SceneManager::run()
-{
-	while (!m_scenes.empty()) {
-		m_currentScene = m_scenes.front();
-		m_scenes.pop();
+	SceneManager::~SceneManager()
+	{
+		//To ease shared ptr of Scene
+		while (!m_scenes.empty()) 
+		{
+			m_scenes.pop();
+		}
+
+		s_Instance = nullptr;
+	}
+
+	void SceneManager::push_scene(const std::shared_ptr<Scene>& scene)
+	{
+		m_scenes.push(scene);
 
 		std::stringstream message;
-		message << "<SceneManager> Running Scene: '" << m_currentScene->m_sceneTitle << "'";
+		message << "<SceneManager> Added Scene: '" << scene->m_sceneTitle << "'";
 		Logger::Instance().info(message.str().c_str());
+	}
 
-		m_currentScene->run();		
+	void SceneManager::run() 
+	{
+		while (!m_scenes.empty()) 
+		{
+			m_currentScene = m_scenes.front();
+			m_scenes.pop();
 
-		m_currentScene->cleanup();
+			m_currentScene->run();
+			m_currentScene->cleanup();
+		}
 	}
 }
-
-
