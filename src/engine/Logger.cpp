@@ -2,6 +2,12 @@
 
 namespace Engine
 {
+	const char* logLevelLabels[3] = {
+			"ERROR",
+			"WARNING",
+			"INFO"
+	};
+
 
 	Logger& Logger::Instance()
 	{

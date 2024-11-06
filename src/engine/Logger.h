@@ -11,12 +11,6 @@ namespace Engine
 		LOG_LEVEL_ERROR = 0
 	};
 
-	const char* logLevelLabels[3] = {
-			"ERROR",
-			"WARNING",
-			"INFO"
-	};
-
 
 	class Logger {
 	public:

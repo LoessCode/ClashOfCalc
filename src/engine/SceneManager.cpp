@@ -32,7 +32,7 @@ namespace Engine {
 	SceneManager::~SceneManager()
 	{
 		//To ease shared ptr of Scene
-		while (!m_scenes.empty()) 
+		while (!m_scenes.empty())
 		{
 			m_scenes.pop();
 		}
