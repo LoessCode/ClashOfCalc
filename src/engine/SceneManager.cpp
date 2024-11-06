@@ -45,7 +45,7 @@ namespace Engine {
 		m_scenes.push(scene);
 
 		std::stringstream message;
-		message << "<SceneManager> Added Scene: '" << scene->m_sceneTitle << "'";
+		message << "<SceneManager> Added Scene: '" << scene->get_sceneTitle() << "'";
 		Logger::Instance().info(message.str().c_str());
 	}
 

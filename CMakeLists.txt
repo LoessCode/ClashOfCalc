@@ -12,7 +12,7 @@ endif()
 project ("ClashOfCalc")
 
 # Add source to this project's executable.
-add_executable (ClashOfCalc "src/main.cpp"   "src/engine/SceneManager.h" "src/engine/SceneManager.cpp" "src/engine/Scene.h" "src/engine/Scene.cpp" "src/engine/Logger.cpp" "src/engine/Logger.h")
+add_executable (ClashOfCalc "src/main.cpp"   "src/engine/SceneManager.h" "src/engine/SceneManager.cpp" "src/engine/Scene.h" "src/engine/Scene.cpp" "src/engine/Logger.cpp" "src/engine/Logger.h" "src/game/Menu.cpp" "src/game/Menu.h" "src/game/Game.h" "src/game/Game.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET ClashOfCalc PROPERTY CXX_STANDARD 20)
