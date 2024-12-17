@@ -3,14 +3,14 @@
 
 #include "../engine/Scene.h"
 
-namespace ClashOfCalc 
+namespace GameSpace 
 {
 	class Menu: public Engine::Scene 
 	{
 	public:
 		Menu();
 
-		void run_init() override;
+		void run() override;
 
 		void update() override;
 		void draw() override;

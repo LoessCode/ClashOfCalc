@@ -5,7 +5,7 @@
 
 #include <memory>
 
-namespace ClashOfCalc
+namespace GameSpace
 {
 	/*
 	struct MenuParameters : public Engine::SceneParameters
@@ -26,9 +26,13 @@ namespace ClashOfCalc
 	{
 
 	}
-	void Menu::run_init()
-	{
 
+	void Menu::run()
+	{
+		InitWindow(m_windowWidth, m_windowHeight, m_sceneTitle);
+		while (!WindowShouldClose()) {
+
+		}
 	}
 
 	void Menu::update()
@@ -47,6 +51,7 @@ namespace ClashOfCalc
 
 	void Menu::cleanup()
 	{
+		CloseWindow();
 		Engine::SceneManager::Instance().push_scene(
 			std::make_shared < Game >()
 		);

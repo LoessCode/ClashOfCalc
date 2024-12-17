@@ -12,7 +12,7 @@ endif()
 project ("ClashOfCalc")
 
 # Add source to this project's executable.
-add_executable (ClashOfCalc "src/main.cpp"   "src/engine/SceneManager.h" "src/engine/SceneManager.cpp" "src/engine/Scene.h" "src/engine/Scene.cpp" "src/engine/Logger.cpp" "src/engine/Logger.h" "src/game/Menu.cpp" "src/game/Menu.h" "src/game/Game.h" "src/game/Game.cpp")
+add_executable (ClashOfCalc "src/main.cpp"   "src/engine/SceneManager.h" "src/engine/SceneManager.cpp" "src/engine/Scene.h" "src/engine/Scene.cpp" "src/engine/Logger.cpp" "src/engine/Logger.h" "src/game/Menu.cpp" "src/game/Menu.h" "src/game/Game.h" "src/game/Game.cpp" "src/game/entity/Player.cpp" "src/game/entity/Entity.cpp" "src/game/entity/Entity.h" "src/game/entity/Player.h" "src/game/world/World.h" "src/game/world/World.cpp" "src/game/world/Tile.cpp" "src/game/world/Tile.h" "src/engine/Resourcer.h" "src/engine/Resourcer.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET ClashOfCalc PROPERTY CXX_STANDARD 20)
@@ -32,8 +32,19 @@ FetchContent_Declare(
 # Removes examples
 set(BUILD_EXAMPLES OFF CACHE INTERNAL "")
 
+
 #Fetches content of raylib and adds to the project files
 FetchContent_MakeAvailable(raylib)
 
 #Links libraries to the project
 target_link_libraries(${PROJECT_NAME} raylib)
+
+# Copy the assets folder to the build directory
+if (FALSE) #Fake Comment in Cmake
+add_custom_command(
+        TARGET ClashOfCalc POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+                ${CMAKE_SOURCE_DIR}/src/engine/assets/watermark.png
+                $<TARGET_FILE_DIR:${PROJECT_NAME}>/assets/watermark.png
+)
+endif()

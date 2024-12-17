@@ -23,7 +23,7 @@ namespace Engine {
 		}
 		else 
 		{
-			Logger::Instance().error("<SceneManager> The SceneManager cannot be retrieved without initiializing.");
+			Logger::Instance().error("<SceneManager> The SceneManager cannot be retrieved without initializing.");
 
 			throw;
 		}

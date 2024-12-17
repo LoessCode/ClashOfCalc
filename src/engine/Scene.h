@@ -1,10 +1,12 @@
 #pragma once
 
+#include <raylib.h>
+
 namespace Engine
 {
 	struct SceneParameters {
-		int windowWidth = 1920 / 2;
-		int windowHeight = 1080 / 2;
+		int windowWidth = 1920;
+		int windowHeight = 1080;
 		const char* sceneTitle = "Scene";
 		int targetFPS = 60;
 	};
@@ -42,9 +44,7 @@ namespace Engine
 		const int m_windowWidth;
 		const char* const m_sceneTitle;
 		const int m_targetFPS; //Raylib window FPS limit
-
-	protected:
-		int m_FPS; //Live FPS
+	
 
 	};
 

@@ -8,13 +8,15 @@
 
 int main() 
 {
-	std::shared_ptr<Engine::Scene> menu = std::make_shared < ClashOfCalc::Menu > ();
+	std::shared_ptr<Engine::Scene> menu = std::make_shared < GameSpace::Menu > ();
 
 	Engine::SceneManager sceneManager;
 
+	/*
 	sceneManager.push_scene(
 		menu
 	);
 
 	sceneManager.run();
+	*/
 }
